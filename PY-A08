@@ -1,0 +1,29 @@
+from tkinter import Button, Entry, Tk, Label, Toplevel
+from tkinter import messagebox
+
+tamanho_janelas="600x400" # opcional
+
+def mostrar_mensagem():
+    nome_usuario = entry.get()
+    # messagebox.showinfo("Boas vindas", f"Bem vindo, {nome_usuario}!")
+
+    nova_janela = Toplevel(janela)
+    nova_janela.title("bem vindo")
+    nova_janela.geometry(tamanho_janelas) # opcional
+
+    label = Label(nova_janela, text=f"Bem vindo, {nome_usuario}!")
+    label.pack()
+
+janela = Tk()
+janela.title("Sistema de cadastro")
+janela.geometry(tamanho_janelas) # opcional
+entry = Entry(janela)
+
+button = Button(janela, text="Enviar", command=mostrar_mensagem)
+
+entry.pack()
+button.pack()
+entry.pack_configure(side="top") # opcional
+button.pack_configure(side="top") # opcional
+
+janela.mainloop()
